@@ -66,3 +66,7 @@ Thumbs.db
 *.wmv
 *.gz
 *.pickle
+
+# data folder
+/data
+*.extxyz
