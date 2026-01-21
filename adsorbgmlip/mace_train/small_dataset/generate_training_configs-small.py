@@ -29,15 +29,15 @@ def generate_submission_script(run_name, lambda_value, output_dir=None ):
         energy_coeff = 1
 
     run_template = f"""#!/bin/bash -l
-#SBATCH --account=project_2008059
-#SBATCH --partition=gpusmall
+#SBATCH --account=XXX
+#SBATCH --partition=YYY
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --time=24:15:00
 #SBATCH --gres=gpu:a100:1
 
-export PATH="/scratch/project_2012660/mace_env_cueq/bin:$PATH"
+export PATH="PATH_TO_MACE_ENVIRONMENT/bin:$PATH"
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 echo $OMP_NUM_THREADS
@@ -97,10 +97,10 @@ runs = {
     "only_forces": "infinity"
 }
 
-current_path = '/scratch/project_2012660/MACE_training/small_set_lambda'
+current_path = '/adsorbgmlip/mace_train/small_dataset'
 # dataset paths 
-train_path = '/scratch/project_2012660/MACE_training/dataset_full/train_small_dataset_std.extxyz'
-test_path = '/scratch/project_2012660/MACE_training/dataset_full/test_small_dataset_std.extxyz'
+train_path = 'PATH_TO_TRAINING_SET/train_small_dataset_std.extxyz'
+test_path = 'PATH_TO_TEST_SET/test_small_dataset_std.extxyz'
 
 for run_name, lamb in runs.items():
     
