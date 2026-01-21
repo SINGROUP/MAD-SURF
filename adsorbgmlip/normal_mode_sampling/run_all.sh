@@ -1,7 +1,7 @@
 #!/bin/bash
 
 molecule_dir=$PWD  # Set the base directory to the current working directory
-slurm_script_dir="/scratch/project_2008059/NMS/general_folder"  # Directory containing the SLURM script
+slurm_script_dir="./general_folder"  # Directory containing the SLURM script
 slurm_script="run_all_NMS.sh"  # Name of the SLURM script
 counter=1
 total=$(find "$molecule_dir"/* -maxdepth 1 -type d | wc -l)
