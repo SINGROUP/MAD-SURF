@@ -34,8 +34,8 @@ remove_directory() {
 }
 
 ZENODO_BASE_URL="https://zenodo.org/record/18312238/files"
-FILES=("data.tar.gz" "models.tar.gz")
-DIRS=("data" "models")
+FILES=("dataset.zip" "models.zip")
+DIRS=("dataset" "models")
 REPO_DIR=$(pwd)
 
 for i in "${!FILES[@]}"; do
