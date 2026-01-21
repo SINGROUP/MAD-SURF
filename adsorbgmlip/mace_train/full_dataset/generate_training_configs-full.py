@@ -29,24 +29,24 @@ def generate_submission_script(run_name, lambda_value, output_dir=None ):
         energy_coeff = 1
 
     run_template = f"""#!/bin/bash -l
-#SBATCH --account=project_2008059
-#SBATCH --partition=gpusmall
+#SBATCH --account=XXX
+#SBATCH --partition=YYY
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
 #SBATCH --time=36:00:00
 #SBATCH --gres=gpu:a100:1
 
-export PATH="/scratch/project_2012660/mace_env_cueq/bin:$PATH"
+export PATH="PATH_TO_MACE_ENVIRONMENT"
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 echo $OMP_NUM_THREADS
 
-torchrun --standalone --nnodes=1 --nproc_per_node=1 /MAHTI_TYKKY_2Q2XasS/miniforge/envs/env1/lib/python3.10/site-packages/mace/cli/run_train.py \\
+mace_run_train \\
 --name="MACE_model" \\
---train_file="/scratch/project_2012660/MACE_training/full_dataset_train/processed_data/train" \\
---valid_file="/scratch/project_2012660/MACE_training/full_dataset_train/processed_data/val" \\
---test_dir="/scratch/project_2012660/MACE_training/full_dataset_train/processed_data/test" \\
+--train_file="../processed_data/train" \\
+--valid_file="../processed_data/val" \\
+--test_dir="../processed_data/test" \\
 --num_workers=32 \\
 --atomic_numbers="[1, 6, 7, 8, 16, 17, 29, 35, 47, 79]" \\
 --config_type_weights='{"Default":1.0}' \\
@@ -102,10 +102,10 @@ runs = {
     "only_forces": "infinity"
 }
 
-current_path = '/scratch/project_2012660/MACE_training/full_set_lambda'
+current_path = '/adsorbgmlip/mace_train/full_dataset'
 # dataset paths 
-#train_path = '/scratch/project_2012660/MACE_training/dataset_full/train_small_dataset_std.extxyz'
-#test_path = '/scratch/project_2012660/MACE_training/dataset_full/test_small_dataset_std.extxyz'
+#train_path = 'XXX/train_small_dataset_std.extxyz'
+#test_path = 'XXX/scratch/project_2012660/MACE_training/dataset_full/test_small_dataset_std.extxyz'
 
 for run_name, lamb in runs.items():
     
