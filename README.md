@@ -36,13 +36,14 @@ Create a Python environment (e.g. with `conda` or `venv`) and install the requir
 - PyTorch (CPU or GPU build)
 - [`mace`](https://github.com/ACEsuit/mace) / `mace-torch`
 - `ase`
+- 'aalto-boss'
 - `numpy`, `scipy`, `matplotlib`
 
 A minimal example with `pip` (adapt to your setup):
 
 ```bash
 pip install torch  # choose the build appropriate for your hardware
-pip install mace-torch ase numpy scipy matplotlib
+pip install mace-torch ase aalto-boss numpy scipy matplotlib
 ```
 
 ---
