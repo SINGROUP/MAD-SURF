@@ -45,6 +45,9 @@ A minimal example with `pip` (adapt to your setup):
 pip install torch  # choose the build appropriate for your hardware
 pip install mace-torch ase aalto-boss numpy scipy matplotlib
 ```
+In addition, we highly suggest you install the libraries for CUDA acceleration (if building for GPU) for faster training and inference of MACE:
+`pip install cuequivariance cuequivariance-torch cuequivariance-ops-torch-cu12` 
+where 'cu12' corresponds to your CUDA-version, e.g. 12 in this case.
 
 ---
 
